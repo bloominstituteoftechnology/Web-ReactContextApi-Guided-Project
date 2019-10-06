@@ -8,7 +8,7 @@ class UsesContextConsumer extends React.Component {
       <userContext.Consumer>
         {name => (
           <StyledWidget color='orange'>
-            UsesContextConsumer {name}
+            UsesContextConsumer <span className='bold'>{name}</span>
           </StyledWidget>
         )}
       </userContext.Consumer>
@@ -20,7 +20,7 @@ class UsesStaticContextType extends React.Component {
   render() {
     return (
       <StyledWidget color='green'>
-        UsesStaticContextType, {this.context}
+        UsesStaticContextType, <span className='bold'>{this.context}</span>
       </StyledWidget>
     );
   }
@@ -31,7 +31,7 @@ function FunctionUsingContextHook() {
   const context = useContext(userContext);
   return (
     <StyledWidget color='turquoise'>
-      FunctionUsingContextHook, {context}
+      FunctionUsingContextHook, <span className='bold'>{context}</span>
     </StyledWidget>
   );
 }

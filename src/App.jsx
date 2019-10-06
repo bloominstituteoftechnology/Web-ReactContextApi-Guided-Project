@@ -28,8 +28,9 @@ function Top() {
   return (
     <StyledWidget color='grey'>
       <div>
-        This is the top level component. The current count is {count.number}&nbsp;
-        and my favorite user is {getCurrentUser().name}
+        This is the top level component. The current count is&nbsp;
+        <span className='bold'>{count.number}</span>&nbsp;
+        and my favorite user is <span className='bold'>{getCurrentUser().name}</span>
       </div>
 
       <button onClick={increment}>increment count</button><br />
