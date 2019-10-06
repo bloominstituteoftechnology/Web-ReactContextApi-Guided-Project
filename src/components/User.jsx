@@ -1,17 +1,12 @@
-import React, { useContext } from 'react';
-import userContext from '../contexts/userContext';
+import React from 'react';
 import { StyledWidget } from '../styled';
 
 class UsesContextConsumer extends React.Component {
   render() {
     return (
-      <userContext.Consumer>
-        {name => (
-          <StyledWidget color='orange'>
-            UsesContextConsumer <span className='bold'>{name}</span>
-          </StyledWidget>
-        )}
-      </userContext.Consumer>
+      <StyledWidget color='orange'>
+        UsesContextConsumer <span className='bold'>{this.props.name}</span>
+      </StyledWidget>
     );
   }
 }
@@ -20,35 +15,33 @@ class UsesStaticContextType extends React.Component {
   render() {
     return (
       <StyledWidget color='green'>
-        UsesStaticContextType, <span className='bold'>{this.context}</span>
+        UsesStaticContextType, <span className='bold'>{this.props.name}</span>
       </StyledWidget>
     );
   }
 }
-UsesStaticContextType.contextType = userContext;
 
-function FunctionUsingContextHook() {
-  const context = useContext(userContext);
+function FunctionUsingContextHook({ name }) {
   return (
     <StyledWidget color='turquoise'>
-      FunctionUsingContextHook, <span className='bold'>{context}</span>
+      FunctionUsingContextHook, <span className='bold'>{name}</span>
     </StyledWidget>
   );
 }
 
-export default function Counter() {
+export default function User({ name }) {
   return (
     <StyledWidget color='gold'>
-      <div>This is the User component.</div>
+      <div>This is the <span className='bold'>User</span> component.</div>
       <div>
         It renders three components that use
         the context API in different ways, to get the `name`
         of the fav user straight from the top of the app
       </div>
 
-      <UsesContextConsumer />
-      <UsesStaticContextType />
-      <FunctionUsingContextHook />
+      <UsesContextConsumer name={name} />
+      <UsesStaticContextType name={name} />
+      <FunctionUsingContextHook name={name} />
     </StyledWidget>
   );
 }

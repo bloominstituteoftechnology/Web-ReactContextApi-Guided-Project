@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Counter from './components/Counter';
 import User from './components/User';
-import countContext from './contexts/countContext';
-import userContext from './contexts/userContext';
 import { StyledWidget } from './styled';
 
 const initialCount = { number: 0 };
@@ -13,7 +11,7 @@ const initialUserData = {
     { id: '2', name: 'Megan' },
     { id: '3', name: 'James' },
   ],
-  favUser: '1',
+  favUserId: '1',
 };
 
 function Top() {
@@ -21,16 +19,16 @@ function Top() {
   const increment = () => setCount({ number: count.number + 1 });
 
   const [userData, setUserData] = useState(initialUserData);
-  const setFavUser = id => () => setUserData({ ...userData, favUser: id });
+  const setFavUser = id => () => setUserData({ ...userData, favUserId: id });
 
-  const getCurrentUser = () => userData.users.find(usr => usr.id === userData.favUser);
+  const favUser = userData.users.find(usr => usr.id === userData.favUserId);
 
   return (
     <StyledWidget color='grey'>
       <div>
-        This is the top level component. The current count is&nbsp;
+        This is the <span className='bold'>Top</span> level component. The current count is&nbsp;
         <span className='bold'>{count.number}</span>&nbsp;
-        and my favorite user is <span className='bold'>{getCurrentUser().name}</span>
+        and my favorite user is <span className='bold'>{favUser.name}</span>
       </div>
 
       <button onClick={increment}>increment count</button><br />
@@ -38,13 +36,8 @@ function Top() {
       <button onClick={setFavUser('2')}>fav Megan</button>
       <button onClick={setFavUser('3')}>fav James</button>
 
-      <countContext.Provider value={count}>
-        <Counter />
-      </countContext.Provider>
-
-      <userContext.Provider value={getCurrentUser().name}>
-        <User />
-      </userContext.Provider>
+      <Counter count={count} />
+      <User name={favUser.name} />
     </StyledWidget>
   );
 }
