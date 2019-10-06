@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import countContext from '../contexts/countContext';
 import { StyledWidget } from '../styled';
 
-
 class UsesContextConsumer extends React.Component {
   render() {
     return (
@@ -40,6 +39,7 @@ export default function Counter() {
         the context API in different ways, to get the `count`
         straight from the top of the app
       </div>
+
       <UsesContextConsumer />
       <UsesStaticContextType />
       <FunctionUsingContextHook />
