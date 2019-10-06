@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import Container from './components/Container';
-import userContext from './contexts/userContext';
+import Counter from './components/Counter';
+import countContext from './contexts/countContext';
 
-const initial = { number: 0 };
+const initialCount = { number: 0 };
+const userData = { users: [], currentUser: null };
 
 function Top() {
-  const [count, setCount] = useState(initial);
+  const [count, setCount] = useState(initialCount);
   const increment = () => setCount({ number: count.number + 1 });
 
   return (
     <div>
       <button onClick={increment}>increment</button>
 
-      <userContext.Provider value={count}>
-        <Container />
-      </userContext.Provider>
+      <countContext.Provider value={count}>
+        <Counter />
+      </countContext.Provider>
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Container from '../Container';
+import Counter from '../Counter';
 
 
-const wrapper = shallow(<Container />);
+const wrapper = shallow(<Counter />);
 
 describe('Hello World', () => {
   it('renders correctly', () => {

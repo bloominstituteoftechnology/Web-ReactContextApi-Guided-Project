@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
-import userContext from '../contexts/userContext';
-import './Container.less';
+import countContext from '../contexts/countContext';
+import './Counter.less';
 
 class UsesContextConsumer extends React.Component {
   render() {
     return (
-      <userContext.Consumer>
+      <countContext.Consumer>
         {({ number }) => <div>UsesContextConsumer {number}</div>}
-      </userContext.Consumer>
+      </countContext.Consumer>
     );
   }
 }
@@ -21,10 +21,10 @@ class UsesStaticContextType extends React.Component {
     );
   }
 }
-UsesStaticContextType.contextType = userContext;
+UsesStaticContextType.contextType = countContext;
 
 function FunctionUsingContextHook() {
-  const context = useContext(userContext);
+  const context = useContext(countContext);
   return (
     <div>
       <div>FunctionUsingContextHook, {context.number}</div>
@@ -32,7 +32,7 @@ function FunctionUsingContextHook() {
   );
 }
 
-export default function Container() {
+export default function Counter() {
   return (
     <div>
       <UsesContextConsumer />
