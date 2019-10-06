@@ -19,7 +19,7 @@ function Top() {
   const increment = () => setCount({ number: count.number + 1 });
 
   const [userData, setUserData] = useState(initialUserData);
-  const setFavUser = id => setUserData({ ...userData, favUser: id });
+  const setFavUser = id => () => setUserData({ ...userData, favUser: id });
 
   return (
     <StyledWidget color='grey'>
@@ -29,9 +29,9 @@ function Top() {
       </div>
 
       <button onClick={increment}>increment count</button><br />
-      <button onClick={() => setFavUser('1')}>fav Pere</button>
-      <button onClick={() => setFavUser('2')}>fav Megan</button>
-      <button onClick={() => setFavUser('3')}>fav James</button>
+      <button onClick={setFavUser('1')}>fav Pere</button>
+      <button onClick={setFavUser('2')}>fav Megan</button>
+      <button onClick={setFavUser('3')}>fav James</button>
 
       <countContext.Provider value={count}>
         <Counter />
