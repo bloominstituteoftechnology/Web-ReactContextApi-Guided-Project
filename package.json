@@ -37,6 +37,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "react-dom": "^16.10.2",
+    "styled-components": "^4.4.0"
   }
 }

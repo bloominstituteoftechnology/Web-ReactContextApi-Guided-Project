@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import countContext from '../contexts/countContext';
-import './Counter.less';
+import { StyledWidget } from '../styled';
+
 
 class UsesContextConsumer extends React.Component {
   render() {
     return (
       <countContext.Consumer>
-        {({ number }) => <div>UsesContextConsumer {number}</div>}
+        {({ number }) => <StyledWidget color='red'>UsesContextConsumer {number}</StyledWidget>}
       </countContext.Consumer>
     );
   }
@@ -15,9 +16,9 @@ class UsesContextConsumer extends React.Component {
 class UsesStaticContextType extends React.Component {
   render() {
     return (
-      <div>
+      <StyledWidget color='blue'>
         UsesStaticContextType, {this.context.number}
-      </div>
+      </StyledWidget>
     );
   }
 }
@@ -26,18 +27,22 @@ UsesStaticContextType.contextType = countContext;
 function FunctionUsingContextHook() {
   const context = useContext(countContext);
   return (
-    <div>
-      <div>FunctionUsingContextHook, {context.number}</div>
-    </div>
+    <StyledWidget color='green'>FunctionUsingContextHook, {context.number}</StyledWidget>
   );
 }
 
 export default function Counter() {
   return (
-    <div>
+    <StyledWidget color='yellow'>
+      <div>This is the Counter component.</div>
+      <div>
+        It renders three components that use
+        the context API in different ways, to get the `count`
+        straight from the top of the app
+      </div>
       <UsesContextConsumer />
       <UsesStaticContextType />
       <FunctionUsingContextHook />
-    </div>
+    </StyledWidget>
   );
 }
