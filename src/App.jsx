@@ -15,18 +15,20 @@ const initialUserData = {
 };
 
 function Top() {
+  // slice of state 1
   const [count, setCount] = useState(initialCount);
   const increment = () => setCount({ number: count.number + 1 });
-
+  // slice of state 2
   const [userData, setUserData] = useState(initialUserData);
   const setFavUser = id => () => setUserData({ ...userData, favUserId: id });
-
+  // info derived from state
   const favUser = userData.users.find(usr => usr.id === userData.favUserId);
 
   return (
     <StyledWidget color='grey'>
       <div>
-        This is the <span className='bold'>Top</span> level component. The current count is&nbsp;
+        This is the <span className='bold'>Top</span>&nbsp;
+        level component. The current count is&nbsp;
         <span className='bold'>{count.number}</span>&nbsp;
         and my favorite user is <span className='bold'>{favUser.name}</span>
       </div>
@@ -37,12 +39,9 @@ function Top() {
       <button onClick={setFavUser('3')}>fav James</button>
 
       {/* <Counter count={count} /> */}
-      <User name={favUser.name} />
+      {/* <User name={favUser.name} /> */}
     </StyledWidget>
   );
 }
 
-ReactDOM.render(
-  <Top />,
-  document.querySelector('#target'),
-);
+ReactDOM.render(<Top />, document.querySelector('#target'));

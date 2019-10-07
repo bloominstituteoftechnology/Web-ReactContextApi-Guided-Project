@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyledWidget } from '../styled';
+import { StyledWidget as Div } from '../styled';
 
 class UsesContextConsumer extends React.Component {
   render() {
     return (
-      <StyledWidget color='red'>
+      <Div color='red'>
         UsesContextConsumer <span className='bold'>{this.props.count.number}</span>
-      </StyledWidget>
+      </Div>
     );
   }
 }
@@ -14,24 +14,24 @@ class UsesContextConsumer extends React.Component {
 class UsesStaticContextType extends React.Component {
   render() {
     return (
-      <StyledWidget color='blue'>
+      <Div color='blue'>
         UsesStaticContextType, <span className='bold'>{this.props.count.number}</span>
-      </StyledWidget>
+      </Div>
     );
   }
 }
 
 function FunctionUsingContextHook({ count }) {
   return (
-    <StyledWidget color='green'>
+    <Div color='green'>
       FunctionUsingContextHook, <span className='bold'>{count.number}</span>
-    </StyledWidget>
+    </Div>
   );
 }
 
 export default function Counter({ count }) {
   return (
-    <StyledWidget color='yellow'>
+    <Div color='yellow'>
       <div>This is the <span className='bold'>Counter</span> component.</div>
       <div>
         It renders three components that use
@@ -42,6 +42,6 @@ export default function Counter({ count }) {
       <UsesContextConsumer count={count} />
       <UsesStaticContextType count={count} />
       <FunctionUsingContextHook count={count} />
-    </StyledWidget>
+    </Div>
   );
 }

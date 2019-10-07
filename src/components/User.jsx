@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyledWidget } from '../styled';
+import { StyledWidget as Div } from '../styled';
 
 class UsesContextConsumer extends React.Component {
   render() {
     return (
-      <StyledWidget color='orange'>
+      <Div color='orange'>
         UsesContextConsumer <span className='bold'>{this.props.name}</span>
-      </StyledWidget>
+      </Div>
     );
   }
 }
@@ -14,24 +14,24 @@ class UsesContextConsumer extends React.Component {
 class UsesStaticContextType extends React.Component {
   render() {
     return (
-      <StyledWidget color='green'>
+      <Div color='green'>
         UsesStaticContextType, <span className='bold'>{this.props.name}</span>
-      </StyledWidget>
+      </Div>
     );
   }
 }
 
 function FunctionUsingContextHook({ name }) {
   return (
-    <StyledWidget color='turquoise'>
+    <Div color='turquoise'>
       FunctionUsingContextHook, <span className='bold'>{name}</span>
-    </StyledWidget>
+    </Div>
   );
 }
 
 export default function User({ name }) {
   return (
-    <StyledWidget color='gold'>
+    <Div color='gold'>
       <div>This is the <span className='bold'>User</span> component.</div>
       <div>
         It renders three components that use
@@ -42,6 +42,6 @@ export default function User({ name }) {
       <UsesContextConsumer name={name} />
       <UsesStaticContextType name={name} />
       <FunctionUsingContextHook name={name} />
-    </StyledWidget>
+    </Div>
   );
 }
