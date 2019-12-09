@@ -9,6 +9,8 @@ import countContext from '../contexts/countContext';
 //         returns the desired jsx
 // 4- use the context inside the jsx, instead of props!!!
 function Output({ count }) {
+  // we are not soiling a good enough component
+  // with any context syntax
   return (
     <Div color='red'>
       UsesContextConsumer, <span className='bold'>{count.number}</span>
