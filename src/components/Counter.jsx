@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyledWidget as Div } from '../styled';
 import countContext from '../contexts/countContext';
 
@@ -34,8 +34,9 @@ class UsesContextConsumer extends React.Component {
 }
 
 // METHOD B only works with classes because the this keyword is used
-// step 1 - add a static property to the class with the countContext
-// step 2 - consume the context through this.context
+// step 1 - import countContext at the top
+// step 2 - add a static property to the class with the countContext
+// step 3 - consume the context through this.context
 class UsesStaticContextType extends React.Component {
   static contextType = countContext // not "real" JS
 
@@ -49,7 +50,7 @@ class UsesStaticContextType extends React.Component {
 }
 // UsesStaticContextType.contextType = countContext;
 
-function FunctionUsingContextHook({ count }) {
+function FunctionUsingContextHook() {
   return (
     <Div color='green'>
       FunctionUsingContextHook, <span className='bold'>{count.number}</span>
