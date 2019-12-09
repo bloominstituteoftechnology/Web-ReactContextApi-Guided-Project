@@ -51,7 +51,7 @@ function Top() {
         {/* anything inside the provider can be aware of the context */}
         <Counter />
       </countContext.Provider>
-      {/* <User user={favUser} /> */}
+      <User user={favUser} />
     </Div>
   );
 }
