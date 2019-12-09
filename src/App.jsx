@@ -4,12 +4,12 @@ import Counter from './components/Counter';
 import User from './components/User';
 import { StyledWidget as Div } from './styled';
 
-const initialCount = { number: 0 };
+const initialCount = { number: 0 }; // object, not integer!
 const initialUserData = {
   users: [
-    { id: '1', name: 'Pere' },
-    { id: '2', name: 'Megan' },
-    { id: '3', name: 'James' },
+    { id: '1', name: 'Emma' },
+    { id: '2', name: 'Andre' },
+    { id: '3', name: 'Evans' },
   ],
   favUserId: '1',
 };
