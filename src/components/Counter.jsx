@@ -2,12 +2,6 @@ import React from 'react';
 import { StyledWidget as Div } from '../styled';
 import countContext from '../contexts/countContext';
 
-// METHOD A works with both class & functional components
-// 1- import context at the top
-// 2- use the countContext.Consumer in the jsx
-// 3- inside the consumer, put a function of "context" that
-//         returns the desired jsx
-// 4- use the context inside the jsx, instead of props!!!
 function Output({ count }) {
   // we are not soiling a good enough component
   // with any context syntax
@@ -18,6 +12,12 @@ function Output({ count }) {
   );
 }
 
+// METHOD A works with both class & functional components
+// 1- import context at the top
+// 2- use the countContext.Consumer in the jsx
+// 3- inside the consumer, put a function of "context" that
+//         returns the desired jsx
+// 4- use the context inside the jsx, instead of props!!!
 class UsesContextConsumer extends React.Component {
   render() {
     return (
