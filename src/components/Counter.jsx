@@ -8,15 +8,21 @@ import countContext from '../contexts/countContext';
 // 3- inside the consumer, put a function of "context" that
 //         returns the desired jsx
 // 4- use the context inside the jsx, instead of props!!!
+function Output({ count }) {
+  return (
+    <Div color='red'>
+      UsesContextConsumer, <span className='bold'>{count.number}</span>
+    </Div>
+  );
+}
+
 class UsesContextConsumer extends React.Component {
   render() {
     return (
       <countContext.Consumer>
         {
           (count) => (
-            <Div color='red'>
-              UsesContextConsumer, <span className='bold'>{count.number}</span>
-            </Div>
+            <Output count={count} />
           )
         }
       </countContext.Consumer>
