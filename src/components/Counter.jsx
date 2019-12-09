@@ -55,7 +55,7 @@ class UsesStaticContextType extends React.Component {
 // step 2 import the context hook useContext from react at the top
 // step 3 use the hook!
 function FunctionUsingContextHook() {
-  const count = useContext(countContext);
+  const count = useContext(countContext); // dirty!!
   return (
     <Div color='green'>
       FunctionUsingContextHook, <span className='bold'>{count.number}</span>
