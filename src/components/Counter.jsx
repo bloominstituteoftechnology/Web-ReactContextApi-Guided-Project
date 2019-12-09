@@ -57,7 +57,7 @@ function FunctionUsingContextHook({ count }) {
   );
 }
 
-export default function Counter({ count }) {
+export default function Counter() {
   return (
     <Div color='yellow'>
       <div>This is the <span className='bold'>CounterIntermediate</span> component.</div>
@@ -70,7 +70,7 @@ export default function Counter({ count }) {
 
       <UsesContextConsumer />
       <UsesStaticContextType />
-      <FunctionUsingContextHook count={count} />
+      <FunctionUsingContextHook />
     </Div>
   );
 }

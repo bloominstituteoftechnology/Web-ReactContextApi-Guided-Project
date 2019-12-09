@@ -49,7 +49,7 @@ function Top() {
       <countContext.Provider value={count}>
         {/* the 'value' prop is whatever we want context to be */}
         {/* anything inside the provider can be aware of the context */}
-        <Counter count={count} />
+        <Counter />
       </countContext.Provider>
       {/* <User user={favUser} /> */}
     </Div>
