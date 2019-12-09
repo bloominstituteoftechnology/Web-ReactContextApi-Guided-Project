@@ -32,10 +32,11 @@ function FunctionUsingContextHook({ count }) {
 export default function Counter({ count }) {
   return (
     <Div color='yellow'>
-      <div>This is the <span className='bold'>Counter</span> component.</div>
+      <div>This is the <span className='bold'>CounterIntermediate</span> component.</div>
       <div>
-        It renders three components that use
-        the context API in different ways, to get the `count`
+        It does not use the `count` object itself, but
+        it renders three components that will use the
+        context API in different ways, to get the `count` object
         straight from the top of the app
       </div>
 
