@@ -6,7 +6,7 @@ import { StyledWidget as Div } from './styled';
 import countContext from './contexts/countContext';
 
 // STEP 1 - CREATE A CONTEXT FILE countContext (contexts folder)
-// STEP 2 - BRING THE CONTEXT INTO THE TOP-LEVEL COMPONENT
+// STEP 2 - BRING THE CONTEXT INTO THE PARENT COMPONENT
 // STEP 3 - USE THE countContext to WRAP THE DESCENDANTS
 
 const initialCount = { number: 0 }; // object, not integer!
