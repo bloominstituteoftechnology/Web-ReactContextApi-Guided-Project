@@ -53,7 +53,7 @@ export default function Counter({ count }) {
         straight from the top of the app
       </div>
 
-      <UsesContextConsumer count={count} />
+      <UsesContextConsumer />
       <UsesStaticContextType count={count} />
       <FunctionUsingContextHook count={count} />
     </Div>
