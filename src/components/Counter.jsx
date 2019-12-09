@@ -13,9 +13,9 @@ class UsesContextConsumer extends React.Component {
     return (
       <countContext.Consumer>
         {
-          (context) => (
+          (count) => (
             <Div color='red'>
-              UsesContextConsumer, <span className='bold'>{context.number}</span>
+              UsesContextConsumer, <span className='bold'>{count.number}</span>
             </Div>
           )
         }
