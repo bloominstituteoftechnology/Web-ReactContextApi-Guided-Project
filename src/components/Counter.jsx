@@ -5,7 +5,7 @@ class UsesContextConsumer extends React.Component {
   render() {
     return (
       <Div color='red'>
-        UsesContextConsumer <span className='bold'>{this.props.count.number}</span>
+        UsesContextConsumer, <span className='bold'>{this.props.count.number}</span>
       </Div>
     );
   }
