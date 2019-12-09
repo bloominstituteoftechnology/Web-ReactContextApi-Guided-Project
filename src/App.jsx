@@ -34,9 +34,12 @@ function Top() {
       </div>
 
       <button onClick={increment}>increment count</button><br />
-      <button onClick={setFavUser('1')}>fav Emma</button>
-      <button onClick={setFavUser('2')}>fav Andre</button>
-      <button onClick={setFavUser('3')}>fav Evans</button>
+
+      {
+        initialUserData.users.map(user => (
+          <button key={user.id} onClick={setFavUser(user.id)}>fav {user.name}</button>
+        ))
+      }
 
       <Counter count={count} />
       {/* <User user={favUser} /> */}
