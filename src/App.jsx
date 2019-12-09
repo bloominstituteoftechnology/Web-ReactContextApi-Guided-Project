@@ -39,7 +39,7 @@ function Top() {
       <button onClick={setFavUser('3')}>fav James</button>
 
       <Counter count={count} />
-      <User user={favUser} />
+      {/* <User user={favUser} /> */}
     </Div>
   );
 }
