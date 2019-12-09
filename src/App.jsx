@@ -46,7 +46,7 @@ function Top() {
         ))
       }
 
-      <countContext.Provider value={count}>
+      <countContext.Provider value={{ ...count, lady: 'gaga', increment }}>
         {/* the 'value' prop is whatever we want context to be */}
         {/* anything inside the provider can be aware of the context */}
         <Counter />

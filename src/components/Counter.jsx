@@ -43,6 +43,7 @@ class UsesStaticContextType extends React.Component {
   render() {
     return (
       <Div color='blue'>
+        <button onClick={this.context.increment}>INCREMENT MUAHAHA</button>
         UsesStaticContextType, <span className='bold'>{this.context.number}</span>
       </Div>
     );
