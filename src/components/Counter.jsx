@@ -1,12 +1,25 @@
 import React from 'react';
 import { StyledWidget as Div } from '../styled';
+import countContext from '../contexts/countContext';
 
+// this works with both class & functional components
+// 1- import context at the top
+// 2- use the countContext.Consumer in the jsx
+// 3- inside the consumer, put a function of "context" that
+//         returns the desired jsx
+// 4- use the context inside the jsx, instead of props!!!
 class UsesContextConsumer extends React.Component {
   render() {
     return (
-      <Div color='red'>
-        UsesContextConsumer, <span className='bold'>{this.props.count.number}</span>
-      </Div>
+      <countContext.Consumer>
+        {
+          (context) => (
+            <Div color='red'>
+              UsesContextConsumer, <span className='bold'>{context.number}</span>
+            </Div>
+          )
+        }
+      </countContext.Consumer>
     );
   }
 }
