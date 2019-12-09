@@ -36,6 +36,8 @@ class UsesContextConsumer extends React.Component {
 // step 1 - add a static property to the class with the countContext
 // step 2 - consume the context through this.context
 class UsesStaticContextType extends React.Component {
+  static contextType = countContext // not "real" JS
+
   render() {
     return (
       <Div color='blue'>
@@ -44,7 +46,7 @@ class UsesStaticContextType extends React.Component {
     );
   }
 }
-UsesStaticContextType.contextType = countContext;
+// UsesStaticContextType.contextType = countContext;
 
 function FunctionUsingContextHook({ count }) {
   return (
