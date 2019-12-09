@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Counter from './components/Counter';
 import User from './components/User';
-import { StyledWidget } from './styled';
+import { StyledWidget as Div } from './styled';
 
 const initialCount = { number: 0 };
 const initialUserData = {
@@ -25,7 +25,7 @@ function Top() {
   const favUser = userData.users.find(usr => usr.id === userData.favUserId);
 
   return (
-    <StyledWidget color='grey'>
+    <Div color='grey'>
       <div>
         This is the <span className='bold'>Top</span>&nbsp;
         level component. The current count is&nbsp;
@@ -40,7 +40,7 @@ function Top() {
 
       <Counter count={count} />
       <User user={favUser} />
-    </StyledWidget>
+    </Div>
   );
 }
 
