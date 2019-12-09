@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledWidget as Div } from '../styled';
 import countContext from '../contexts/countContext';
 
-// this works with both class & functional components
+// METHOD A works with both class & functional components
 // 1- import context at the top
 // 2- use the countContext.Consumer in the jsx
 // 3- inside the consumer, put a function of "context" that
@@ -32,15 +32,19 @@ class UsesContextConsumer extends React.Component {
   }
 }
 
+// METHOD B only works with classes because the this keyword is used
+// step 1 - add a static property to the class with the countContext
+// step 2 - consume the context through this.context
 class UsesStaticContextType extends React.Component {
   render() {
     return (
       <Div color='blue'>
-        UsesStaticContextType, <span className='bold'>{this.props.count.number}</span>
+        UsesStaticContextType, <span className='bold'>{this.context.number}</span>
       </Div>
     );
   }
 }
+UsesStaticContextType.contextType = countContext;
 
 function FunctionUsingContextHook({ count }) {
   return (
@@ -62,7 +66,7 @@ export default function Counter({ count }) {
       </div>
 
       <UsesContextConsumer />
-      <UsesStaticContextType count={count} />
+      <UsesStaticContextType />
       <FunctionUsingContextHook count={count} />
     </Div>
   );
