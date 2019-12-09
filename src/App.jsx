@@ -20,7 +20,7 @@ function Top() {
   const increment = () => setCount(count => ({ number: count.number + 1 }));
   // slice of state 2
   const [userData, setUserData] = useState(initialUserData);
-  const setFavUser = id => () => setUserData({ ...userData, favUserId: id });
+  const setFavUser = id => () => setUserData(userData => ({ ...userData, favUserId: id }));
   // info derived from state
   const favUser = userData.users.find(usr => usr.id === userData.favUserId);
 
@@ -34,9 +34,9 @@ function Top() {
       </div>
 
       <button onClick={increment}>increment count</button><br />
-      <button onClick={setFavUser('1')}>fav Pere</button>
-      <button onClick={setFavUser('2')}>fav Megan</button>
-      <button onClick={setFavUser('3')}>fav James</button>
+      <button onClick={setFavUser('1')}>fav Emma</button>
+      <button onClick={setFavUser('2')}>fav Andre</button>
+      <button onClick={setFavUser('3')}>fav Evans</button>
 
       <Counter count={count} />
       {/* <User user={favUser} /> */}
