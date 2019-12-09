@@ -24,6 +24,7 @@ class UsesContextConsumer extends React.Component {
       <countContext.Consumer>
         {
           (count) => (
+            // count is what we fed into the 'value' prop in the top component
             <Output count={count} />
           )
         }
