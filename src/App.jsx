@@ -39,7 +39,7 @@ function Top() {
       <button onClick={setFavUser('3')}>fav James</button>
 
       <Counter count={count} />
-      {/* <User name={favUser.name} /> */}
+      <User user={favUser} />
     </StyledWidget>
   );
 }
